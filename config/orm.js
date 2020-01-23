@@ -13,7 +13,7 @@ var orm = {
             console.log(res);
         })
     },
-    insertOne: function (tableName, columnNmaes, columnValues, callback) {
+    insertOne: function (tableName, columnNmaes, columnValues, cb) {
         var querySting = "INSERT INTO" + tableName + "NAMES: (" + columnNmaes + ")" + "VALUES (" + columnValues + ")";
         console.log(querySting)
         connection.query(queryString, vals, function (err, result) {
