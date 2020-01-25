@@ -25,5 +25,5 @@ var food = {
   }
 };
 
-// Export the database functions for the controller (catsController.js).
+// Export the database functions for the controller (foodie.js).
 module.exports = food;
