@@ -1,0 +1,1 @@
+  INSERT INTO table foodie(food_name, boolean) VALUES (pizza, false) (burger), (chinese_chicken,);

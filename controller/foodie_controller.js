@@ -11,8 +11,12 @@ router.get("/", function(req, res){
     })
 })
 router.post("/api/food", function(req, res){
-    db.create(["food_name","devoured"],[req.body.food_name,req.body.devoured],function(foodData){
-        console.log(foodData);
+    db.create([
+      "food_name","devoured"
+    ],[
+      req.body.food_name,req.body.devoured
+    ],function(result){
+        console.log(result);
         var hbsObject = {food: foodData}
          res.render({id: result.insertId});
     });
@@ -23,7 +27,7 @@ router.put("/api/foodie/:id", function(req, res) {
     console.log("condition", condition);
   
     db.update({
-      sleepy: req.body.sleepy
+      devoured: req.body.devoured
     }, condition, function(result) {
       if (result.changedRows == 0) {
         // If no rows were changed, then the ID must not exist, so 404
