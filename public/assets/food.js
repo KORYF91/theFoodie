@@ -23,7 +23,7 @@ $(function() {
     });
   
     $(".create-form").on("submit", function(event) {
-        console.log("clicked : submit")
+        // console.log("clicked : submit")
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
   
