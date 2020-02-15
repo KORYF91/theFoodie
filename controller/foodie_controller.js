@@ -4,29 +4,27 @@ var router = express.Router();
 var db = require("../models/foodie.js");
 
 router.get("/", function(req, res){
-    db.all(function(foodData){
-        console.log(foodData);
+    db.selectAll(function(foodData){
+        // console.log(foodData);
         var hbsObject = {food: foodData}
          res.render("index", hbsObject);
     })
 })
 router.post("/api/food", function(req, res){
     db.create([
-      "food_name","devoured"
+      "name", "devoured"
     ],[
-      req.body.food_name,req.body.devoured
+      req.body.food_name, req.body.devoured
     ],function(result){
-        console.log(result);
-        var hbsObject = {food: foodData}
-         res.render({id: result.insertId});
+        res.json({ id: result.insertId });
     });
 });
-router.put("/api/foodie/:id", function(req, res) {
+router.put("/api/food/:id", function(req, res) {
     var condition = "id = " + req.params.id;
   
     console.log("condition", condition);
   
-    db.update({
+    db.updateOne({
       devoured: req.body.devoured
     }, condition, function(result) {
       if (result.changedRows == 0) {
@@ -38,7 +36,7 @@ router.put("/api/foodie/:id", function(req, res) {
     });
   });
   
-  router.delete("/api/foodie/:id", function(req, res) {
+  router.delete("/api/food/:id", function(req, res) {
     var condition = "id = " + req.params.id;
   
     db.delete(condition, function(result) {

@@ -5,7 +5,7 @@
 <li>
     {{#each food}}
     {{#unless devoured}}
-    {{>food/food-block eaten=true}}
+    {{>food/food-block devoured=true}}
     {{/unless}}
     {{/each}}
 </li>
@@ -15,7 +15,7 @@
 <li>
     {{#each food}}
     {{#if devoured}}
-    {{> food/food-block eaten=false}}
+    {{> food/food-block devoured=false}}
     {{/if}}
     {{/each}}
 </li>
