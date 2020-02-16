@@ -29,10 +29,11 @@ $(function() {
   
       var newFood = {
         name: $("#ca").val().trim(),
-        devoured: $("[name=devoured]:checked").val().trim()
+        devoured: $(".devoured").is(":checked") 
       };
-  
-      // Send the POST request.
+  console.log(newFood)
+
+    //   Send the POST request.
       $.ajax("/api/food", {
         type: "POST",
         data: newFood

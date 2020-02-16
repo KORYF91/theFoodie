@@ -12,9 +12,9 @@ router.get("/", function(req, res){
 })
 router.post("/api/food", function(req, res){
     db.create([
-      "name", "devoured"
+      "food_name", "devoured"
     ],[
-      req.body.food_name, req.body.devoured
+      req.body.name, req.body.devoured === 'true'
     ],function(result){
         res.json({ id: result.insertId });
     });
