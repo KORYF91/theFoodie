@@ -14,7 +14,7 @@ router.post("/api/food", function(req, res){
     db.create([
       "food_name", "devoured"
     ],[
-      req.body.name, req.body.devoured === 'true'
+      req.body.name, req.body.devoured === 'true' 
     ],function(result){
         res.json({ id: result.insertId });
     });
